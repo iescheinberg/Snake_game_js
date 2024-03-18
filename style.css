@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    font-family: "Share Tech Mono", monospace;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #25265c;
+    background-color: #2a2b5e;
 }
 
 .game-container {
@@ -16,4 +22,31 @@ canvas {
     display: block;
     margin: 0;
     background-color: #fff;
+}
+
+.controls {
+    margin-top: 10px;
+    background-color: #2a2b5e;
+
+}
+
+.controls button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #2a2b5e;
+    margin: 10px;
+}
+
+.controls button:hover {
+    background-color: #fff;
+    color: #2a2b5e;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.score {
+    font-size: 18px;
+    margin: 10px;
+    color: #fff;
 }

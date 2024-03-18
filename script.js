@@ -5,17 +5,34 @@ const scale = 20;
 const rows = canvas.height / scale;
 const columns = canvas.width / scale;
 
+const scoreDisplay = document.querySelector('#scoreValue');
+
+let isGameRunning = false;
+let intervalId;
+
+
 let snake;
 let fruit;
 
 
+
+document.getElementById('startButton').addEventListener('click', () => {
+    if (!isGameRunning) {
+        startGame()
+    }
+})
+
+
+
 // Game Setup
-(function setup() {
+function startGame() {
+    isGameRunning = true;
     snake = new Snake();
     fruit = new Fruit();
     fruit.pickLocation();
+    scoreDisplay.innerText = '0'
 
-    window.setInterval(() => {
+    intervalId = window.setInterval(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         fruit.draw();
         snake.update();
@@ -29,7 +46,12 @@ let fruit;
         document.querySelector('.score')
             .innerText = snake.total;
     }, 250);
-}());
+};
+
+function increaseScore() {
+    snake.total++;
+    scoreDisplay.innerText = snake.total;
+}
 
 window.addEventListener('keydown', evt => {
     const direction = evt.key.replace('Arrow', '');
